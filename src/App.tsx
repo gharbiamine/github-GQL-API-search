@@ -1,7 +1,6 @@
-// import { useState } from "react";
-
 import { UserProvider } from "./contexts/UserContext";
 import { LandingPage } from "./pages/LandingPage";
+
 
 function App() {
   return (
