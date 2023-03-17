@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from "react";
-import { List } from "../components/List";
 import { Search } from "../components/Search";
 import { UserContext, UserProvider } from "../contexts/UserContext";
 
 import { UserModel } from "../models/UserModel";
 import { getRepositories } from "../services/SearchService";
+import { ListSection } from "./sections/ListSection";
 
 export const LandingPage = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -24,8 +24,9 @@ export const LandingPage = () => {
         handleSearch={handleUsernameSearch}
         title="Get github repositories by username"
         button="Fetch"
+        isMain={true}
       />
-      <List />
+      <ListSection />
     </div>
   );
 };

@@ -7,21 +7,24 @@ interface CardProps {
 
 export const Card = ({ repository }: CardProps) => {
   return (
-    <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">{repository.name}</h5>
-        <p className="card-text">{repository.description}</p>
-        <div className="card-caption">{repository.updatedAt.toString()}</div>
+    <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+        {repository.name}
+      </h5>
+      <p className="mb-2 text-xl font-semibold tracking-tight text-gray-800 dark:text-white">
+        {repository.description}
+      </p>
+      <div className="mb-2 text-md font-semibold tracking-tight text-gray-700 dark:text-white">
+        {repository.updatedAt.toString()}
       </div>
-      <div className="card-footer">
-        <div className="d-flex align-items-centrer justify-content-between">
-          <div>
-            <div className="badge badge-primary mr-1">
-              {repository.stargazers.totalCount}
-            </div>
-            <div className="badge badge-primary mr-1">
-              {repository.forks.totalCount}
-            </div>
+
+      <div className="flex items-centrer ">
+        <div>
+          <div className="inline-flex items-center text-blue-600 hover:underline">
+            {repository.stargazers.totalCount}
+          </div>
+          <div className="inline-flex items-center text-blue-600 hover:underline">
+            {repository.forks.totalCount}
           </div>
         </div>
       </div>
