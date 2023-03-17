@@ -1,5 +1,8 @@
 import React from "react";
 import { RepositoryNodeModel } from "../models/RepositoryNodeModel";
+import { getTimeElapsed } from "../utils/getTimeElapsed";
+import star from "../assets/git-star.svg";
+import fork from "../assets/git-fork.svg";
 
 interface CardProps {
   repository: RepositoryNodeModel;
@@ -15,17 +18,17 @@ export const Card = ({ repository }: CardProps) => {
         {repository.description}
       </p>
       <div className="mb-2 text-md font-semibold tracking-tight text-gray-700 dark:text-white">
-        {repository.updatedAt.toString()}
+        {getTimeElapsed(repository.updatedAt)}
       </div>
 
       <div className="flex items-centrer ">
-        <div>
-          <div className="inline-flex items-center text-blue-600 hover:underline">
-            {repository.stargazers.totalCount}
-          </div>
-          <div className="inline-flex items-center text-blue-600 hover:underline">
-            {repository.forks.totalCount}
-          </div>
+        <div className="inline-flex items-center text-blue-600 hover:underline">
+          <span>{repository.stargazers.totalCount}</span>
+          <img className="h-100" src={star} alt="git-star" />
+        </div>
+        <div className="inline-flex items-center justify-between text-blue-600 hover:underline">
+          <span>{repository.forks.totalCount}</span>
+          <img className="h-100" src={fork} alt="git-fork" />
         </div>
       </div>
     </div>

@@ -7,5 +7,5 @@ export interface RepositoryNodeModel {
   forks: {
     totalCount: number;
   };
-  updatedAt: Date;
+  updatedAt: string;
 }

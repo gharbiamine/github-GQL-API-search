@@ -1,13 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { FC, useContext, useEffect, useState } from "react";
 import { Search } from "../components/Search";
-import { UserContext, UserProvider } from "../contexts/UserContext";
-
+import { UserContext } from "../contexts/UserContext";
 import { UserModel } from "../models/UserModel";
 import { getRepositories } from "../services/SearchService";
 import { ListSection } from "./sections/ListSection";
 
-export const LandingPage = () => {
+export const LandingPage: FC = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
+  const [loading, setLoading] = useState<boolean>(true);
   const handleUsernameSearch = (username: string) => {
     getRepositories(username)
       .then((user: UserModel) => {

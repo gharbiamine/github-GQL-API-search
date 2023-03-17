@@ -4,6 +4,7 @@ import { getRepositoriesQuery } from "../schema/getRepositoriesQuery";
 
 axios.defaults.headers.common = {
   Authorization: `Bearer ${import.meta.env.VITE_APP_GITHUB_PUBLIC_API_KEY}`,
+  "content-type": "application/json",
 };
 
 interface UserModelResponse {
@@ -14,9 +15,6 @@ export const getRepositories = async (username: string, limit = 10) => {
   const options = {
     method: "POST",
     url: import.meta.env.VITE_APP_BASE_URL,
-    headers: {
-      "content-type": "application/json",
-    },
     data: {
       query: getRepositoriesQuery,
       variables: {
