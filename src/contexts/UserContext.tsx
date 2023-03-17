@@ -17,10 +17,6 @@ export const UserContext = createContext<UserContextType>({
 export const UserProvider = ({ children }: Props) => {
   const [currentUser, setCurrentUser] = useState<UserModel | null>(null);
 
-  const setContext = useCallback((updates : UserModel | null)=> setCurrentUser(updates),[currentUser, setCurrentUser]);
-  const getContext = useCallback(
-    () => currentUser
-  , [currentUser, setCurrentUser])
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>
       {children}
