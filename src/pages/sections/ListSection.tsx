@@ -1,6 +1,6 @@
 import React, { FC, useContext, useEffect, useMemo, useState } from "react";
 import { List } from "../../components/List";
-import { Search } from "../../components/Search";
+import { Search, SearchEnum } from "../../components/Search";
 import { UserContext } from "../../contexts/UserContext";
 import { RepositoryNodeModel } from "../../models/RepositoryNodeModel";
 import { MoonLoader } from "react-spinners";
@@ -36,9 +36,10 @@ export const ListSection: FC<Props> = ({ isLoading }) => {
               handleSearch={(value: string) => {
                 setValue(value);
               }}
-              title="filter through repositories"
+              title="Filter through repositories"
               button="fetch"
-              isMain={false}
+              description="placeholder"
+              type={SearchEnum.secondary}
             />
           )}
 

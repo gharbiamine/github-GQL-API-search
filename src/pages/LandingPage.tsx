@@ -1,13 +1,21 @@
-import React, { FC, useContext, useEffect, useState } from "react";
-import { Search } from "../components/Search";
+import React, { FC, useContext, useEffect, useRef, useState } from "react";
+import { Search, SearchEnum } from "../components/Search";
 import { UserContext } from "../contexts/UserContext";
 import { UserModel } from "../models/UserModel";
 import { getRepositories } from "../services/SearchService";
 import { ListSection } from "./sections/ListSection";
 
 export const LandingPage: FC = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { setCurrentUser } = useContext(UserContext);
   const [loading, setLoading] = useState<boolean>(false);
+  const listReference = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    window.scrollTo({
+      behavior: "smooth",
+      top: listReference.current?.offsetTop,
+    });
+  }, [loading]);
+
   const handleUsernameSearch = (username: string) => {
     setLoading(true);
     getRepositories(username)
@@ -26,11 +34,15 @@ export const LandingPage: FC = () => {
     <div>
       <Search
         handleSearch={handleUsernameSearch}
-        title="Get github repositories by username"
+        title="Github search"
+        description="Search for a github user and see their "
         button="Fetch"
-        isMain={true}
+        feature="respositories"
+        type={SearchEnum.main}
       />
-      <ListSection isLoading={loading} />
+      <div ref={listReference}>
+        <ListSection isLoading={loading} />
+      </div>
     </div>
   );
 };

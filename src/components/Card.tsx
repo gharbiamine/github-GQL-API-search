@@ -1,8 +1,8 @@
 import React from "react";
 import { RepositoryNodeModel } from "../models/RepositoryNodeModel";
 import { getTimeElapsed } from "../utils/getTimeElapsed";
-import star from "../assets/git-star.svg";
-import fork from "../assets/git-fork.svg";
+import star from "../assets/icons/git-star.svg";
+import fork from "../assets/icons/git-fork.svg";
 
 interface CardProps {
   repository: RepositoryNodeModel;

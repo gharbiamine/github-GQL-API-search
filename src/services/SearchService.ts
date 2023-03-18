@@ -12,7 +12,7 @@ interface UserModelResponse {
   data: { user: UserModel };
 }
 
-export const n = async (username: string, limit = 10) => {
+export const getRepositories = async (username: string, limit = 10) => {
   const options = {
     method: "POST",
     url: import.meta.env.VITE_APP_BASE_URL,
