@@ -1,7 +1,4 @@
 import React, { FC } from "react";
-import { getTimeElapsed } from "../utils/getTimeElapsed";
-import star from "../assets/icons/git-star.svg";
-import fork from "../assets/icons/git-fork.svg";
 import { UserModel } from "../models/UserModel";
 
 interface IProfileProps {

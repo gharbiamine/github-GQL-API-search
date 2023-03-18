@@ -1,6 +1,4 @@
-import React, { FC, useContext, useEffect, useMemo, useState } from "react";
-
-import { UserContext } from "../contexts/UserContext";
+import React, { FC } from "react";
 import { RepositoryNodeModel } from "../models/RepositoryNodeModel";
 import { Card } from "./Card";
 
