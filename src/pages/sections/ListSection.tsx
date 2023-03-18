@@ -55,14 +55,18 @@ export const ListSection: FC<Props> = ({ isLoading }) => {
                 <div className="flex-shrink-0 flex flex-col justify-center items-center lg:w-1/3 lg:sticky top-0 h-full lg:h-screen overflow-y-auto">
                   <Profile user={currentUser} />
                 </div>
-                <div className="flex-1 overflow-y-auto md:px-5 px-12 max-w-screen-xl max-h-screen">
-                  <Search
-                    handleSearch={(value: string) => {
-                      setValue(value);
-                    }}
-                    type={SearchEnum.secondary}
-                  />
-                  <List repositoryList={repositoryList} />
+                <div className="md:px-5 px-12  w-full">
+                  <div className="sticky top-0 md:my-4 my-8">
+                    <Search
+                      handleSearch={(value: string) => {
+                        setValue(value);
+                      }}
+                      type={SearchEnum.secondary}
+                    />
+                  </div>
+                  <div className="flex-1 overflow-y-auto  max-w-screen-xl max-h-screen">
+                    <List repositoryList={repositoryList} />
+                  </div>
                 </div>
               </div>
             </>
@@ -70,7 +74,7 @@ export const ListSection: FC<Props> = ({ isLoading }) => {
           {showButton && (
             <div className="fixed bottom-10 right-10">
               <button
-                className=" bg-accent hover:shadow-lg text-overaccent font-bold p-2 rounded-full"
+                className=" bg-primary hover:shadow-lg text-overaccent font-bold p-2 rounded-full"
                 onClick={handleScrollToTop}
               >
                 <img src={arrowUp} alt="go-up" />

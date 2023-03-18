@@ -19,7 +19,7 @@ export const Profile: FC<IProfileProps> = ({ user }) => {
         openInNewTab(user.url);
       }}
     >
-      <div className="flex flex-col items-center justify-between h-full w-96 my-5 rounded-xl bg-secondary/10 hover:shadow-sm hover:shadow-primary cursor-pointer p-4 ">
+      <div className="flex flex-col items-center justify-between h-full w-80 my-5 rounded-xl bg-secondary/10 hover:shadow-sm hover:shadow-primary cursor-pointer p-4 ">
         <div className="my-4">
           <img
             src={user.avatarUrl}

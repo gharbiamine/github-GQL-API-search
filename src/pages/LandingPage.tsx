@@ -37,7 +37,7 @@ export const LandingPage: FC = () => {
       <Search
         handleSearch={handleUsernameSearch}
         title="Github search"
-        description="Search for a github user and see their "
+        description="Search for a github user and see their most recent "
         button="Fetch"
         feature="respositories"
         type={SearchEnum.main}

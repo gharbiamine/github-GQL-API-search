@@ -41,7 +41,7 @@ export const Search: FC<ISearchProps> = ({
             <div className="flex flex-col mb-2 w-full px-5 md:px-12  h-full ">
               <div className="flex items-cetner justify-center md:jutify-between  flex-wrap-reverse w-full md:flex-nowrap mb-20">
                 <div className="flex flex-col justify-around w-full">
-                  <div className="relative group text-5xl font-bold text-primary text-center md:text-start font-poppins w-fit mb-8 md:mb-0">
+                  <div className="relative group text-5xl font-bold text-primary text-center md:text-start font-poppins w-full md:w-fit mb-8 md:mb-0">
                     <span>{title}</span>
                     <span className="absolute -bottom-1 left-0 w-0 h-2 bg-accent transition-all group-hover:w-full"></span>
                   </div>

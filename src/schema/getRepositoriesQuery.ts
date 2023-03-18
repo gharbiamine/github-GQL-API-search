@@ -27,6 +27,9 @@ query getRepositoriesQuery($limit: Int!, $username: String!) {
           forks {
             totalCount
           }
+          primaryLanguage{
+            name
+          }
           updatedAt
         }
       }
