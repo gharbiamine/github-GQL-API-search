@@ -12,6 +12,7 @@ query getRepositoriesQuery($limit: Int!, $username: String!) {
         ... on Repository {
           name
           description
+          url
           stargazers {
             totalCount
           }

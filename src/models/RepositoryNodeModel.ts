@@ -8,4 +8,5 @@ export interface RepositoryNodeModel {
     totalCount: number;
   };
   updatedAt: string;
+  url: string;
 }

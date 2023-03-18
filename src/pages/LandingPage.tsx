@@ -7,14 +7,18 @@ import { ListSection } from "./sections/ListSection";
 
 export const LandingPage: FC = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const handleUsernameSearch = (username: string) => {
+    setLoading(true);
     getRepositories(username)
       .then((user: UserModel) => {
         setCurrentUser(user);
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -26,7 +30,7 @@ export const LandingPage: FC = () => {
         button="Fetch"
         isMain={true}
       />
-      <ListSection />
+      <ListSection isLoading={loading} />
     </div>
   );
 };
