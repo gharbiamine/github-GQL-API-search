@@ -14,32 +14,32 @@ export const Card: FC<ICardProps> = ({ repository }) => {
   };
   return (
     <div
-      className="w-4/5 my-8 p-6 bg-overaccent border border-secondary/50 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 cursor-pointer"
+      className="w-auto  my-8 p-6 bg-overaccent border border-secondary/50 rounded-md hover:shadow-md cursor-pointer"
       onClick={() => {
         openInNewTab(repository.url);
       }}
     >
-      <div className="flex flex-col justify-between h-full ">
-        <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 ">
-          {repository.name}
-        </h5>
-        <p className="mb-2 text-lg font-semibold tracking-tight text-gray-800 ">
+      <div className="flex flex-col justify-between h-full font-poppins ">
+        <div className="flex items-center justify-between">
+          <div className="mb-2 text-2xl font-semibold  text-primary ">
+            {repository.name}
+          </div>
+          <div className="mb-2 text-md font-normal  text-secondary ">
+            {getTimeElapsed(repository.updatedAt)}
+          </div>
+        </div>
+        <p className="mb-2 text-lg font-light  text-primary ">
           {repository.description}
         </p>
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-start justify-between ">
-            <div className="flex space-x-2 text-blue-600  ">
-              <span>{repository.stargazers.totalCount}</span>
-              <img className="h-100" src={star} alt="git-star" />
-            </div>
-            <div className="flex space-x-2 text-blue-600  ">
-              <span>{repository.forks.totalCount}</span>
-              <img className="h-100 " src={fork} alt="git-fork" />
-            </div>
+        <div className="flex items-start justify-between w-28">
+          <div className="flex space-x-2 text-primary  ">
+            <span>{repository.stargazers.totalCount}</span>
+            <img className="h-100" src={star} alt="git-star" />
           </div>
-          <div className="mb-2 text-md font-semibold tracking-tight text-gray-700 ">
-            {getTimeElapsed(repository.updatedAt)}
+          <div className="flex space-x-2 text-primary  ">
+            <span>{repository.forks.totalCount}</span>
+            <img className="h-100 " src={fork} alt="git-fork" />
           </div>
         </div>
       </div>

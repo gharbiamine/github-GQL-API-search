@@ -34,17 +34,17 @@ export const ListSection: FC<Props> = ({ isLoading }) => {
         <>
           {currentUser && (
             <>
-              <div className="flex h-screen overflow-y-scroll flex-wrap">
+              <div className="flex h-screen overflow-y-scroll">
                 <div className="flex-shrink-0 flex flex-col justify-center items-center  w-1/3 md:sticky top-0 h-screen overflow-y-auto">
                   <Profile user={currentUser} />
+                </div>
+                <div className="flex-1 overflow-y-auto md:px-5 px-12 max-w-screen-xl">
                   <Search
                     handleSearch={(value: string) => {
                       setValue(value);
                     }}
                     type={SearchEnum.secondary}
                   />
-                </div>
-                <div className="flex-1 overflow-y-auto">
                   <List repositoryList={repositoryList} />
                 </div>
               </div>
