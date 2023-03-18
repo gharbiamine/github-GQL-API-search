@@ -1,10 +1,11 @@
-import React, { FC, useContext, useEffect, useMemo, useState } from "react";
+import React, { FC, useContext, useEffect, useState } from "react";
 import { List } from "../../components/List";
 import { Search, SearchEnum } from "../../components/Search";
 import { UserContext } from "../../contexts/UserContext";
 import { RepositoryNodeModel } from "../../models/RepositoryNodeModel";
 import { MoonLoader } from "react-spinners";
 import { filterRepositories } from "../../services/SearchService";
+import { Profile } from "../../components/Profile";
 interface Props {
   isLoading: boolean;
 }
@@ -26,24 +27,29 @@ export const ListSection: FC<Props> = ({ isLoading }) => {
   return (
     <div className="listSection">
       {isLoading ? (
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center mt-28">
           <MoonLoader loading={isLoading} color={COLOR} />
         </div>
       ) : (
         <>
           {currentUser && (
-            <Search
-              handleSearch={(value: string) => {
-                setValue(value);
-              }}
-              title="Filter through repositories"
-              button="fetch"
-              description="placeholder"
-              type={SearchEnum.secondary}
-            />
+            <>
+              <div className="flex h-screen overflow-y-scroll flex-wrap">
+                <div className="flex-shrink-0 flex flex-col justify-center items-center  w-1/3 md:sticky top-0 h-screen overflow-y-auto">
+                  <Profile user={currentUser} />
+                  <Search
+                    handleSearch={(value: string) => {
+                      setValue(value);
+                    }}
+                    type={SearchEnum.secondary}
+                  />
+                </div>
+                <div className="flex-1 overflow-y-auto">
+                  <List repositoryList={repositoryList} />
+                </div>
+              </div>
+            </>
           )}
-
-          <List repositoryList={repositoryList} />
         </>
       )}
     </div>

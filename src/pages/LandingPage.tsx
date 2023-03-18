@@ -6,15 +6,17 @@ import { getRepositories } from "../services/SearchService";
 import { ListSection } from "./sections/ListSection";
 
 export const LandingPage: FC = () => {
-  const { setCurrentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
   const [loading, setLoading] = useState<boolean>(false);
   const listReference = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    window.scrollTo({
-      behavior: "smooth",
-      top: listReference.current?.offsetTop,
-    });
-  }, [loading]);
+    setTimeout(() => {
+      window.scrollTo({
+        behavior: "smooth",
+        top: listReference.current?.offsetTop,
+      });
+    }, 100);
+  }, [currentUser]);
 
   const handleUsernameSearch = (username: string) => {
     setLoading(true);

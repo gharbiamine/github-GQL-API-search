@@ -26,13 +26,13 @@ export const Search: FC<ISearchProps> = ({
   switch (type) {
     case SearchEnum.main:
       return (
-        <div className="flex items-center justify-start min-w-100 h-100 py-10 bg-secondary/5">
+        <div className="flex items-center justify-center min-w-100 h-100 py-10 bg-secondary/10">
           <form
             onSubmit={(event) => {
               event.preventDefault();
               handleSearch(value);
             }}
-            className="flex flex-col w-full h-full mt-20"
+            className="flex flex-col w-full h-full max-w-screen-xl mt-20"
           >
             <div className="flex flex-col mb-2 w-full px-5 md:px-12  h-full ">
               <div className="flex items-cetner justify-center md:jutify-between  flex-wrap-reverse w-full md:flex-nowrap mb-20">
@@ -127,7 +127,6 @@ export const Search: FC<ISearchProps> = ({
                 id="search"
                 className="block p-4 pl-10 text-sm text-primary border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:accent "
                 placeholder="Search"
-                required
                 onChange={(event) => setValue(event.target.value)}
               />
             </div>
