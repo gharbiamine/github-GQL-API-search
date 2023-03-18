@@ -14,7 +14,7 @@ export const Card: FC<ICardProps> = ({ repository }) => {
   };
   return (
     <div
-      className="w-auto  my-8 p-6 bg-overaccent border border-secondary/50 rounded-md hover:shadow-md cursor-pointer"
+      className="w-auto  my-8 p-6 bg-overaccent border border-secondary/50 rounded-lg hover:shadow-sm cursor-pointer"
       onClick={() => {
         openInNewTab(repository.url);
       }}
@@ -44,7 +44,7 @@ export const Card: FC<ICardProps> = ({ repository }) => {
             </div>
           </div>
           {repository.primaryLanguage?.name && (
-            <div className="px-2 py-1 text-sm font-semibold text-center text-white bg-accent rounded-md">
+            <div className="px-2 py-1 text-sm font-semibold text-center text-white bg-accent rounded-lg">
               {repository.primaryLanguage?.name}
             </div>
           )}

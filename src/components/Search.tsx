@@ -80,15 +80,14 @@ export const Search: FC<ISearchProps> = ({
                   <input
                     type="search"
                     id="search"
-                    className="block w-full p-4 pl-10 text-lg text-primary border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:accent "
-                    placeholder="Search"
+                    className="block w-full p-6 pl-10 text-lg text-primary border focus:border-accent border-secondary  outline-0 rounded-3xl bg-gray-50  focus:accent "
+                    placeholder="Enter a username ..."
                     required
                     onChange={(event) => setValue(event.target.value)}
                   />
                   <button
                     type="submit"
-                    className="text-white absolute right-3 bottom-3 bg-accent hover:shadow-lg focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 "
-                    onClick={() => handleSearch(value)}
+                    className="text-white absolute right-5 bottom-5 bg-accent hover:shadow-lg focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 "
                   >
                     {button}
                   </button>
@@ -124,7 +123,7 @@ export const Search: FC<ISearchProps> = ({
             <input
               type="search"
               id="search"
-              className="block p-4 pl-10 text-sm text-primary border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:accent "
+              className="block p-4 pl-10 text-sm text-primary border border-secondary focus:border-accent  outline-0 rounded-3xl bg-gray-50 focus:ring-blue-500 focus:accent "
               placeholder="Search"
               onChange={(event) => setValue(event.target.value)}
               onKeyDown={handleKeyDown}

@@ -52,11 +52,11 @@ export const ListSection: FC<Props> = ({ isLoading }) => {
           {currentUser && (
             <>
               <div className="flex flex-col lg:flex-row h-full overflow-y-scroll  ">
-                <div className="flex-shrink-0 flex flex-col justify-center items-center lg:w-1/3 lg:sticky top-0 h-full lg:h-screen overflow-y-auto">
+                <div className="flex-shrink-0 flex flex-col mt-28 items-center lg:w-1/3 lg:sticky top-0 h-full lg:h-screen overflow-y-auto">
                   <Profile user={currentUser} />
                 </div>
-                <div className="md:px-5 px-12  w-full">
-                  <div className="sticky top-0 md:my-4 my-8">
+                <div className=" w-full max-w-screen-xl">
+                  <div className="sticky top-0 md:my-4 my-8 px-5 md:px-12  ">
                     <Search
                       handleSearch={(value: string) => {
                         setValue(value);
@@ -64,7 +64,7 @@ export const ListSection: FC<Props> = ({ isLoading }) => {
                       type={SearchEnum.secondary}
                     />
                   </div>
-                  <div className="flex-1 overflow-y-auto  max-w-screen-xl max-h-screen">
+                  <div className="flex-1 overflow-y-auto  max-h-screen">
                     <List repositoryList={repositoryList} />
                   </div>
                 </div>
