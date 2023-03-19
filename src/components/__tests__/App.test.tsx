@@ -9,6 +9,8 @@ describe("<App />", () => {
   });
   test("App renders LandingPage", () => {
     render(<App />);
-    expect(screen.getByText("Github search")).toBeTruthy();
+    expect(screen.getByTestId("landing-page")).toBeInTheDocument();
+    expect(screen.getByTestId("title")).toBeInTheDocument();
+    expect(screen.getByTestId("description")).toBeInTheDocument();
   });
 });

@@ -37,7 +37,7 @@ export const LandingPage: FC = () => {
   };
 
   return (
-    <div>
+    <div data-testid="landing-page">
       <ToastContainer />
 
       <Search

@@ -42,12 +42,17 @@ export const Search: FC<ISearchProps> = ({
               <div className="flex items-cetner justify-center md:jutify-between  flex-wrap-reverse w-full md:flex-nowrap mb-20">
                 <div className="flex flex-col justify-around w-full">
                   <div className="relative group text-5xl font-bold text-primary text-center md:text-start font-poppins w-full md:w-fit mb-8 md:mb-0">
-                    <span>{title}</span>
+                    <span data-testid="title">{title}</span>
                     <span className="absolute -bottom-1 left-0 w-0 h-2 bg-accent transition-all group-hover:w-full"></span>
                   </div>
                   <div className="text-2xl font-light text-primary/90 text-center md:text-start font-poppins">
                     {description}
-                    <span className="font-bold text-accent ">{feature}</span>
+                    <span
+                      data-testid="description"
+                      className="font-bold text-accent "
+                    >
+                      {feature}
+                    </span>
                   </div>
                 </div>
                 <div className="flex justify-end w-auto">
