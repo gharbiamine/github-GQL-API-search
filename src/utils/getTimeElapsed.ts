@@ -1,4 +1,9 @@
 export const getTimeElapsed = (dateString: string): string => {
+  /**
+   * Returns a string indicating the time elapsed since a given date.
+   * @param {string} dateString - The date to compare, in ISO 8601 format.
+   * @returns {string} A human-readable string indicating the elapsed time.
+   */
   const now = new Date();
   const date = new Date(dateString);
   const hours = Math.round((now.getTime() - date.getTime()) / (1000 * 60 * 60));

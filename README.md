@@ -132,7 +132,8 @@ npm run storybook
 ## Roadmap
 
 - [x] Add a loader
-- [x] Create unit tests using jest
+- [x] Create unit tests using vitest
+- [x] Create a storybook
 - [ ] Add more filters for the search
 - [ ] Add a dark mode theme
 - [ ] Add i18n support

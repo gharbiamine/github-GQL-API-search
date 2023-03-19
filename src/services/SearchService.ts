@@ -8,10 +8,27 @@ axios.defaults.headers.common = {
   "content-type": "application/json",
 };
 
+/**
+
+    Response data structure from the user query of the Github GraphQL API.
+    @typedef {Object} UserModelResponse
+    @property {Object} data - Contains the requested user information.
+    @property {UserModel} data.user - Represents the user data model.
+    */
 interface UserModelResponse {
   data: { user: UserModel };
 }
 
+/**
+
+    Retrieves user repositories using the Github GraphQL API.
+    @async
+    @function getRepositories
+    @param {string} username - The Github username.
+    @param {number} [limit=100] - The maximum number of repositories to retrieve.
+    @returns {Promise<UserModel>} A Promise that resolves with a UserModel instance.
+    @throws {Error} If the request times out.
+    */
 export const getRepositories = async (username: string, limit = 100) => {
   const options = {
     method: "POST",
@@ -42,6 +59,14 @@ export const getRepositories = async (username: string, limit = 100) => {
   return result as UserModel;
 };
 
+/**
+
+    Filters an array of RepositoryNodeModel instances based on a search string.
+    @function filterRepositories
+    @param {RepositoryNodeModel[]} repositores - An array of RepositoryNodeModel instances.
+    @param {string} value - The search string to filter repositories by.
+    @returns {RepositoryNodeModel[]} An array of filtered RepositoryNodeModel instances.
+    */
 export const filterRepositories = (
   repositores: RepositoryNodeModel[],
   value: string

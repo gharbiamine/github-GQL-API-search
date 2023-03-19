@@ -13,11 +13,6 @@ export const Header: FC<IHeaderProps> = ({
   githubLink,
   projectLink,
 }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleMenuClick = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
   return (
     <div className="Header">
       <div className="flex md:justify-between justify-center items-center px-5 md:px-12 py-4 bg-secondary/10">

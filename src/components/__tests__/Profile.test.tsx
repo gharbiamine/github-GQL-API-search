@@ -18,12 +18,8 @@ describe("Profile", () => {
   test("should render the user's profile", () => {
     render(<Profile user={user} />);
     expect(screen.getByText(user.login)).toBeInTheDocument();
-    expect(
-      screen.getByText(`${user.followers.totalCount}`)
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(`${user.following.totalCount}`)
-    ).toBeInTheDocument();
+    expect(screen.getByText(user.followers.totalCount)).toBeInTheDocument();
+    expect(screen.getByText(user.following.totalCount)).toBeInTheDocument();
     expect(screen.getByText(user.bio)).toBeInTheDocument();
     expect(screen.getByText(user.email)).toBeInTheDocument();
   });

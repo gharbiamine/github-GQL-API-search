@@ -7,6 +7,7 @@ describe("<App />", () => {
     const wrapper = render(<App />);
     expect(wrapper).toBeTruthy();
   });
+
   test("App renders LandingPage", () => {
     render(<App />);
     expect(screen.getByTestId("landing-page")).toBeInTheDocument();

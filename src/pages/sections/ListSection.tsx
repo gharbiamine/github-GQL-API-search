@@ -10,14 +10,28 @@ import arrowUp from "../../assets/icons/arrow-up.svg";
 interface Props {
   isLoading: boolean;
 }
+const COLOR = "#0e1c36";
+
 export const ListSection: FC<Props> = ({ isLoading }) => {
-  const COLOR = "#0e1c36";
   const { currentUser } = useContext(UserContext);
   const [repositoryList, SetRepositoryList] = useState<RepositoryNodeModel[]>(
     []
   );
   const [showButton, setShowButton] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
+
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      behavior: "smooth",
+      top: 0,
+    });
+  };
+
+  /**
+
+    Hook that handles the visibility of a button that allows the user to go back to the top search after scrolling down.
+    @returns {void}
+    */
   useEffect(() => {
     const handleScrollButtonVisibility = () => {
       window.scrollY > 300 ? setShowButton(true) : setShowButton(false);
@@ -27,12 +41,17 @@ export const ListSection: FC<Props> = ({ isLoading }) => {
       window.removeEventListener("scroll", handleScrollButtonVisibility);
     };
   }, []);
-  const handleScrollToTop = () => {
-    window.scrollTo({
-      behavior: "smooth",
-      top: 0,
-    });
-  };
+
+  /**
+
+    Updates the repository list state based on the current user and search value.
+    If a search value is provided, the repository list is filtered based on the name.
+    If no search value is provided, the entire repository list is used.
+    @param {Object} currentUser - The current user object.
+    @param {UserModel} currentUser.repositories.nodes - The repository list of the current user.
+    @param {string} value - The search value used to filter the repository list.
+    @returns {void}
+    */
   useEffect(() => {
     SetRepositoryList(
       value
@@ -74,7 +93,7 @@ export const ListSection: FC<Props> = ({ isLoading }) => {
           {showButton && (
             <div className="fixed bottom-10 right-10">
               <button
-                className=" bg-primary hover:shadow-lg text-overaccent font-bold p-2 rounded-full"
+                className=" bg-accent hover:shadow-lg text-overaccent font-bold p-2 rounded-full"
                 onClick={handleScrollToTop}
               >
                 <img src={arrowUp} alt="go-up" />

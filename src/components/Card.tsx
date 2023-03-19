@@ -12,6 +12,7 @@ export const Card: FC<ICardProps> = ({ repository }) => {
   const openInNewTab = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
+
   return (
     <div
       className="w-auto  my-8 p-6 bg-overaccent border border-secondary/50 rounded-lg hover:shadow-sm cursor-pointer"

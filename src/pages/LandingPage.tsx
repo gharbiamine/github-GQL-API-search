@@ -10,7 +10,16 @@ import { Loader } from "../components/Loader";
 export const LandingPage: FC = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
   const [loading, setLoading] = useState<boolean>(false);
+
   const listReference = useRef<HTMLDivElement>(null);
+
+  /**
+
+    Scrolls to the list of elements with a smooth transition after a user is fetched from the api.
+    @param {Object} currentUser - The current user object.
+    @param {React.RefObject} listReference - A reference to the list element to scroll to.
+    @returns {undefined}
+    */
   useEffect(() => {
     if (currentUser === null) return;
     setTimeout(() => {
@@ -21,6 +30,12 @@ export const LandingPage: FC = () => {
     }, 100);
   }, [currentUser]);
 
+  /**
+
+    Handles searching for a user's repositories based on their username.
+    @param {string} username - The username of the user to search for.
+    @returns {void}
+    */
   const handleUsernameSearch = (username: string) => {
     setLoading(true);
     getRepositories(username)
@@ -39,7 +54,6 @@ export const LandingPage: FC = () => {
   return (
     <div data-testid="landing-page">
       <ToastContainer />
-
       <Search
         handleSearch={handleUsernameSearch}
         title="Github search"
