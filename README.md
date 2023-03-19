@@ -5,7 +5,7 @@
     A minimalistic explorer for searching through github repositories
     <br />
     <br />
-    <a href="">View Demo</a>
+    <a href="https://roaring-yeot-1d9069.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/gharbiamine/github-GQL-API-search/issues">Report Bug</a>
     ·
@@ -142,7 +142,7 @@ See the [open issues](https://github.com/gharbiamine/github-GQL-API-search/issue
 
 ## Contact
 
-Project Link: [https://github.com/Dopeamin/github-repositories-fetch](https://github.com/Dopeamin/github-repositories-fetch)
+Project Link: [https://github.com/gharbiamine/github-GQL-API-search](https://github.com/gharbiamine/github-GQL-API-search)
 
 ## Feedback
 

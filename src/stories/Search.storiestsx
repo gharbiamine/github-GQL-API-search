@@ -1,0 +1,17 @@
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import React from "react";
+import { Search } from "../components/Search";
+
+export default {
+  title: "Components/Search",
+  component: Search,
+  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  argTypes: {
+    backgroundColor: { control: "color" },
+  },
+} as ComponentMeta<typeof Search>;
+const Template: ComponentStory<typeof Search> = (args) => <Search {...args} />;
+export const Main = Template.bind({});
+Main.args = {};
+export const Secondary = Template.bind({});
+Secondary.args = {};

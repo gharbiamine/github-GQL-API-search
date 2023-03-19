@@ -29,7 +29,7 @@ export const Card: FC<ICardProps> = ({ repository }) => {
           </div>
         </div>
         <p className="mb-2 text-lg font-light  text-primary ">
-          {repository.description}
+          {repository.description || "No description provided"}
         </p>
 
         <div className="flex items-center justify-between w-full font-poppins">
