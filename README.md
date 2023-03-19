@@ -104,7 +104,7 @@ You will need latest npm version installed on your machine
 
 3. Serve the project to a development server
    ```sh
-   npm run start
+   npm run dev
    ```
 
 <!-- Testing -->
