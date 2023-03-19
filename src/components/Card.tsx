@@ -15,6 +15,7 @@ export const Card: FC<ICardProps> = ({ repository }) => {
   return (
     <div
       className="w-auto  my-8 p-6 bg-overaccent border border-secondary/50 rounded-lg hover:shadow-sm cursor-pointer"
+      data-testid="card"
       onClick={() => {
         openInNewTab(repository.url);
       }}

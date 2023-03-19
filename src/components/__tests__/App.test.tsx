@@ -1,18 +1,14 @@
-// Imports
-import { render } from "@testing-library/react";
-
-// To Test
+import { describe, test, expect } from "vitest";
+import { render, screen } from "@testing-library/react";
 import { App } from "../../App";
 
-// Tests
-test("Renders main page correctly", () => {
-  // Setup
-  render(<App />);
-
-  // Pre Expecations
-
-  // Init
-
-  // Post Expectations
-  expect(true).toBeTruthy();
+describe("<App />", () => {
+  test("App mounts properly", () => {
+    const wrapper = render(<App />);
+    expect(wrapper).toBeTruthy();
+  });
+  test("App renders LandingPage", () => {
+    render(<App />);
+    expect(screen.getByText("Github search")).toBeTruthy();
+  });
 });
