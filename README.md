@@ -39,8 +39,8 @@
 
 ## About The Project
 
-![search](./search.png)
 ![explorer](./explorer.png)
+![search](./search.png)
 
 With the release of the new github V4 GraphQL API, this application is bascially an explorer built on top of that with the goal of making it easy to search through the github repositories of a given user and getting the information you need.
 
@@ -60,7 +60,7 @@ This project is made using :
 - [TailwindCSS](https://tailwindcss.com/)
 - [GraphQL](https://graphql.org/)
 - [Storybook](https://storybook.js.org/)
-- [Jest](https://jestjs.io/)
+- [Vitest](https://vitest.dev/)
 
 <!-- GETTING STARTED -->
 
@@ -147,4 +147,12 @@ Project Link: [https://github.com/gharbiamine/github-GQL-API-search](https://git
 
 ## Feedback
 
-This coding challenge was a great opportunity for me to experiment with new technologies and brush up on some old ones. Although the timeline has been a bit challenging to keep up with I wasn able to acquire a lot of valuable knowledge and experience that i can hopefully project into feature endeavours. I would love to hear your feedback on the project and how i can improve it in the future.
+This coding challenge was a great opportunity for me to experiment with new technologies and brush up on some old ones.
+<br>
+Although the timeline has been a bit challenging to keep up with, I was able to acquire a lot of valuable knowledge and experience that i can hopefully project into feature endeavours.
+<br>
+The problems i ran into during the porject taught me the importance of knowing the ecosystem of the technologies you are working with and how much tme that can save you.
+<br>
+This was also my first time using GraphQL on a real project and my first time writing unit tests using vitest. I was able to learn a lot about both of these technologies and i am excited to integrate them both into future projects.
+<br>
+I would love to hear your feedback on the project and how i can improve it in the future.
