@@ -1,31 +1,55 @@
-import React from "react";
+import React, { FC } from "react";
 import { RepositoryNodeModel } from "../models/RepositoryNodeModel";
+import { getTimeElapsed } from "../utils/getTimeElapsed";
+import star from "../assets/icons/git-star.svg";
+import fork from "../assets/icons/git-fork.svg";
 
-interface CardProps {
+interface ICardProps {
   repository: RepositoryNodeModel;
 }
 
-export const Card = ({ repository }: CardProps) => {
-  return (
-    <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-        {repository.name}
-      </h5>
-      <p className="mb-2 text-xl font-semibold tracking-tight text-gray-800 dark:text-white">
-        {repository.description}
-      </p>
-      <div className="mb-2 text-md font-semibold tracking-tight text-gray-700 dark:text-white">
-        {repository.updatedAt.toString()}
-      </div>
+export const Card: FC<ICardProps> = ({ repository }) => {
+  const openInNewTab = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
 
-      <div className="flex items-centrer ">
-        <div>
-          <div className="inline-flex items-center text-blue-600 hover:underline">
-            {repository.stargazers.totalCount}
+  return (
+    <div
+      className="w-auto  my-8 p-6 bg-overaccent border border-secondary/50 rounded-lg hover:shadow-sm cursor-pointer"
+      data-testid="card"
+      onClick={() => {
+        openInNewTab(repository.url);
+      }}
+    >
+      <div className="flex flex-col justify-between h-full font-poppins  break-all">
+        <div className="flex items-center justify-between">
+          <div className="mb-2 text-2xl font-semibold  text-primary ">
+            {repository.name}
           </div>
-          <div className="inline-flex items-center text-blue-600 hover:underline">
-            {repository.forks.totalCount}
+          <div className="mb-2 text-md font-normal  text-secondary ">
+            {getTimeElapsed(repository.updatedAt)}
           </div>
+        </div>
+        <p className="mb-2 text-lg font-light  text-primary ">
+          {repository.description || "No description provided"}
+        </p>
+
+        <div className="flex items-center justify-between w-full font-poppins">
+          <div className="flex items-center justify-between w-28">
+            <div className="flex space-x-2 text-primary  ">
+              <span>{repository.stargazers.totalCount}</span>
+              <img className="h-100" src={star} alt="git-star" />
+            </div>
+            <div className="flex space-x-2 text-primary  ">
+              <span>{repository.forks.totalCount}</span>
+              <img className="h-100 " src={fork} alt="git-fork" />
+            </div>
+          </div>
+          {repository.primaryLanguage?.name && (
+            <div className="px-2 py-1 text-sm font-semibold text-center text-white bg-accent rounded-lg">
+              {repository.primaryLanguage?.name}
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -7,5 +7,9 @@ export interface RepositoryNodeModel {
   forks: {
     totalCount: number;
   };
-  updatedAt: Date;
+  primaryLanguage: {
+    name: string;
+  };
+  updatedAt: string;
+  url: string;
 }
