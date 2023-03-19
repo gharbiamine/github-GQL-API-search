@@ -46,7 +46,7 @@ export const LandingPage: FC = () => {
         description="Search for a github user and see their most recent "
         button="Fetch"
         feature="respositories"
-        type={SearchEnum.main}
+        type={SearchEnum.primary}
       />
       {currentUser === null && (
         <div className="md:block hidden">

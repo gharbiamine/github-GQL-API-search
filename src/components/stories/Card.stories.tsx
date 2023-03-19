@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Card } from "../components/Card";
+import { Card } from "../Card";
 
 export default {
-  title: "/Components/Card",
+  title: "Components/Card",
   component: Card,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 } as ComponentMeta<typeof Card>;
@@ -10,18 +10,18 @@ const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   repository: {
-    name: "test",
-    description: "sample description",
+    name: "github-GQL-API-search",
+    description: "This project was made as a coding challenge for MVST. GmbH",
+    url: "https://github.com/gharbiamine/github-GQL-API-search",
+    primaryLanguage: {
+      name: "TypeScript",
+    },
     stargazers: {
-      totalCount: 3,
+      totalCount: 0,
     },
     forks: {
-      totalCount: 3,
+      totalCount: 0,
     },
-    primaryLanguage: {
-      name: "Typescript",
-    },
-    updatedAt: "2021-08-01T12:00:00Z",
-    url: "github.com/testuser/test-repo1",
+    updatedAt: "2023-03-17T11:44:21Z",
   },
 };

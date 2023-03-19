@@ -2,7 +2,7 @@ import React, { FC, KeyboardEventHandler, useState } from "react";
 import githubLogo from "../assets/images/github-logo.png";
 
 export enum SearchEnum {
-  main = "main",
+  primary = "primary",
   secondary = "secondary",
 }
 interface ISearchProps {
@@ -28,7 +28,7 @@ export const Search: FC<ISearchProps> = ({
   };
 
   switch (type) {
-    case SearchEnum.main:
+    case SearchEnum.primary:
       return (
         <div className="flex items-center justify-center min-w-100 h-100 py-10 bg-secondary/10">
           <form
