@@ -64,7 +64,7 @@ export const ListSection: FC<Props> = ({ isLoading }) => {
                       type={SearchEnum.secondary}
                     />
                   </div>
-                  <div className="flex-1 overflow-y-auto md:px-12 px-4 max-h-screen">
+                  <div className="flex-1 overflow-y-auto md:px-12 px-5 max-h-screen">
                     <List repositoryList={repositoryList} />
                   </div>
                 </div>

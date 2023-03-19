@@ -106,9 +106,9 @@ export const Search: FC<ISearchProps> = ({
 
     case SearchEnum.secondary:
       return (
-        <div className="flex justify-end w-full mt-8 ">
-          <div className="relative ">
-            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+        <div className="flex justify-end w-full mt-8  ">
+          <div className="relative md:w-fit w-full flex justify-end  ">
+            <div className="absolute  inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
                 aria-hidden="true"
                 className="w-5 h-5 text-secondary "
@@ -128,7 +128,7 @@ export const Search: FC<ISearchProps> = ({
             <input
               type="search"
               id="search"
-              className="block p-4 pl-10 text-sm text-primary border border-secondary focus:border-accent  outline-0 rounded-3xl bg-gray-50 focus:ring-blue-500 focus:accent "
+              className="block w-full md:w-72 p-4 pl-10 text-sm text-primary border border-secondary focus:border-accent  outline-0 rounded-3xl bg-gray-50 focus:ring-blue-500 focus:accent "
               placeholder="Search"
               onChange={(event) => setValue(event.target.value)}
               onKeyDown={handleKeyDown}

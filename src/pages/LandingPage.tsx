@@ -4,8 +4,8 @@ import { UserContext } from "../contexts/UserContext";
 import { UserModel } from "../models/UserModel";
 import { getRepositories } from "../services/SearchService";
 import { ListSection } from "./sections/ListSection";
-import ContentLoader from "react-content-loader";
 import { toast, ToastContainer } from "react-toastify";
+import { Loader } from "../components/Loader";
 
 export const LandingPage: FC = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -48,23 +48,7 @@ export const LandingPage: FC = () => {
         feature="respositories"
         type={SearchEnum.primary}
       />
-      {currentUser === null && (
-        <div className="md:block hidden">
-          <ContentLoader
-            speed={2}
-            viewBox="0 0 400 160"
-            backgroundColor="#d9d9d9"
-            foregroundColor="#ededed"
-            className="bg-secondary/10"
-          >
-            {" "}
-            <rect x="100" y="6" rx="4" ry="4" width="280" height="40" />
-            <rect x="10" y="30" rx="4" ry="4" width="80" height="90" />
-            <rect x="100" y="55" rx="4" ry="4" width="280" height="40" />
-            <rect x="100" y="104" rx="4" ry="4" width="280" height="40" />
-          </ContentLoader>
-        </div>
-      )}
+      {currentUser === null && <Loader />}
       <div ref={listReference}>
         <ListSection isLoading={loading} />
       </div>
