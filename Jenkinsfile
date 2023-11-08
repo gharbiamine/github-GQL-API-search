@@ -22,9 +22,13 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build and push to Dockerhub') {
             steps {
                 sh 'npm run build'
+                dockerImage = docker.build("gharbiamine/github-gql:latest")
+                withDockerRegistry([ credentialsId: "dockerhubaccount", url: "" ]) {
+                    dockerImage.push()
+                }
             }
         }
 

@@ -1,4 +1,4 @@
-FROM node:19-alpine AS builder
+FROM node:20-alpine AS builder
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json yarn.lock ./
@@ -9,7 +9,7 @@ ARG VITE_APP_BASE_URL
 ARG VITE_APP_GITHUB_PUBLIC_API_KEY
 
 RUN yarn build
-FROM node:19-alpine AS runner
+FROM node:20-alpine AS runner
 WORKDIR /app
 COPY --from=builder /app/ .
 
