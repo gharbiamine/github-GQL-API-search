@@ -1,12 +1,10 @@
 pipeline {
     agent any
 
-    
-
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/gharbiamine/github-GQL-API-search'
+                git credentialsId: 'github-api-key', url: 'https://github.com/gharbiamine/github-GQL-API-search'
             }
         }
 
@@ -25,3 +23,5 @@ pipeline {
         
     }
 }
+
+
