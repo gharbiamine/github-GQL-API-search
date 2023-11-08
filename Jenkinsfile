@@ -7,6 +7,11 @@ pipeline {
                 git branch: 'main', credentialsId: 'github-api-key', url: 'https://github.com/gharbiamine/github-GQL-API-search'
             }
         }
+        
+        stage('Prepare') {
+            sh "npm install -g yarn"
+            sh "yarn install"
+        }
 
         stage('Test') {
             steps {
