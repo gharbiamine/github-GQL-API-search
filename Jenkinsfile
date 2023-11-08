@@ -3,6 +3,12 @@ pipeline {
     tools { 
         nodejs 'Node 20.6.1' 
     }
+
+     environment{
+        registry = "gharbiamine/github-gql"
+        registryCredential = 'dockerhub-login'        
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -26,8 +32,8 @@ pipeline {
             steps {
                 sh 'npm run build'
                 script {
-                    dockerImage = docker.build("gharbiamine/github-gql:latest")
-                    withDockerRegistry([ credentialsId: "dockerhubaccount", url: "" ]) {
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    docker.withRegistry( '', registryCredential ) {
                         dockerImage.push()
                     }
                 }
