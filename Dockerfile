@@ -14,4 +14,4 @@ WORKDIR /app
 COPY --from=builder /app/ .
 
 EXPOSE 5173
-CMD ["yarn", "preview"]
+CMD ["node", "server.js"]
