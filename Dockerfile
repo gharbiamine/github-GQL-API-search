@@ -13,5 +13,6 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 COPY --from=builder /app/ .
 
-EXPOSE 5173
-CMD ["node", "server.js"]
+EXPOSE 4173
+CMD ["yarn", "preview"]
+
