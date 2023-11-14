@@ -13,6 +13,9 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 COPY --from=builder /app/ .
 
+VOLUME ["/var/run/docker.sock"]
+
+
 EXPOSE 4173
 CMD ["yarn", "preview"]
 
