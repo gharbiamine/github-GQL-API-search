@@ -19,7 +19,6 @@ pipeline {
         stage('Prepare') {
             steps{
                 sh "npm install"
-                sh "minikube start"
             }
         }
 
