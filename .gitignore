@@ -27,3 +27,13 @@ dist-ssr
 .env
 docker.txt
 secret.yaml
+github-gql.tf
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform
+**/.terraform/*
+*.tfstate.backup
+terraform.tfstate
+terraform.tfstate.backup
+
