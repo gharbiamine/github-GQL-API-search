@@ -40,13 +40,11 @@ pipeline {
             }
         }
 
-        stage('Deploy container to Kubernetes') {
+        stage('Deploy container to AWS with Terraform') {
             steps {
                 script {
-                    sh 'kubectl apply -f deployment.yaml'
-                    sh 'kubectl apply -f service.yaml'
-                    sh 'kubectl apply -f loadBalancer.yaml'
-                    sh 'minikube service load-balancer'
+                    sh 'terraform init'
+                    sh 'terraform plan'
                 }
             }
         }       
