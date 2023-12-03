@@ -19,6 +19,7 @@ pipeline {
         stage('Prepare') {
             steps{
                 sh "npm install"
+                sh "minikube start"
             }
         }
 
@@ -43,7 +44,7 @@ pipeline {
         stage('Deploy container to Kubernetes') {
             steps {
                 script {
-                    kubernetesDeploy(configs: "deployment.yaml", "service.yaml","loadBalancer.yaml")
+                    sh 'kubectl apply -f service.yaml deployment.yaml loadBalancer.yaml'
                 }
             }
         }       
