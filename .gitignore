@@ -28,3 +28,4 @@ dist-ssr
 docker.txt
 secret.yaml
 github-gql.tf
+.terraform/*
