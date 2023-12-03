@@ -27,3 +27,4 @@ dist-ssr
 .env
 docker.txt
 secret.yaml
+github-gql.tf
