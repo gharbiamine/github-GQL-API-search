@@ -43,8 +43,9 @@ pipeline {
 
         stage('Deploy container to AWS with Terraform') {
             steps {
-                withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'aws_access_key'),
-                                 string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'aws_secret_key')]) {
+                withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY'),
+                                 string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_KEY'),
+                                 string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'GITHUB_OAUTH_TOKEN')]) {
                     sh 'terraform init'
                     sh 'terraform apply'
                 }
