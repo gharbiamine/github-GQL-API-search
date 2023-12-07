@@ -8,8 +8,8 @@ pipeline {
         registry = "gharbiamine/github-gql"
         registryCredential = 'dockerhub-login'  
         AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
-        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
-        GITHUB_OAUTH_TOKEN = credentials('github-oauth-token') 
+        TF_VAR_AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
+        TF_VAR_GITHUB_OAUTH_TOKEN = credentials('github-oauth-token') 
     }
 
     stages {
