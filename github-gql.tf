@@ -42,6 +42,7 @@ frontend:
   phases:
     preBuild:
       commands: ["npm install"]
+      commands: ["pwd"]
     build:
       commands: ["npm run build"]
   artifacts:
