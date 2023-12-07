@@ -43,6 +43,8 @@ pipeline {
         stage('Deploy container to AWS with Terraform') {
             steps {
                 script {
+                    sh 'pwd'
+                    sh 'ls -la'
                     sh 'terraform init'
                     sh 'terraform plan'
                 }
