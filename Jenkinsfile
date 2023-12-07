@@ -6,7 +6,10 @@ pipeline {
 
      environment{
         registry = "gharbiamine/github-gql"
-        registryCredential = 'dockerhub-login'        
+        registryCredential = 'dockerhub-login'  
+        AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
+        GITHUB_OAUTH_TOKEN = credentials('github-oauth-token')      
     }
 
     stages {
@@ -32,7 +35,7 @@ pipeline {
             steps {
                 sh 'npm run build'
                 script {
-                    dockerImage = docker.build registry + ":0.2.$BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":0.2.dev.$BUILD_NUMBER"
                     docker.withRegistry( '', registryCredential ) {
                         dockerImage.push()
                     }   
@@ -40,7 +43,20 @@ pipeline {
             }
         }
 
-        
+        stage('Deploy container to AWS with Terraform') {
+            steps {
+                script {
+                    sh 'pwd'
+                    sh 'ls -la'
+                    sh 'export TF_VAR_aws_access_key=$AWS_ACCESS_KEY_ID'
+                    sh 'export TF_VAR_aws_secret_key=$AWS_SECRET_ACCESS_KEY'
+                    sh 'export TF_VAR_github_oauth_token=$GITHUB_OAUTH_TOKEN'
+                    sh 'terraform init'
+                    sh 'terraform plan'
+                }
+            }
+        }       
+
     }
 }
 
