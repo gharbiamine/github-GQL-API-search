@@ -9,9 +9,8 @@ terraform {
 
 provider "aws" {
   region = "eu-central-1"
-  access_key = env("AWS_ACCESS_KEY")
-  secret_key = env("AWS_SECRET_KEY")
-
+  access_key = var.aws_access_key
+  secret_key = var.aws_secret_key
 }
 
 resource "aws_instance" "web-server" {
@@ -30,8 +29,7 @@ resource "aws_amplify_app" "github-gql" {
 
   repository = "https://github.com/gharbiamine/github-GQL-API-search/" 
 
-  oauth_token = env("GITHUB_OAUTH_TOKEN")
-
+  oauth_token = var.github_oauth_token
 
 
   environment_variables = {
