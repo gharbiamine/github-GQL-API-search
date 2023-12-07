@@ -7,6 +7,7 @@ pipeline {
      environment{
         registry = "gharbiamine/github-gql"
         registryCredential = 'dockerhub-login'  
+         
     }
 
     stages {
@@ -42,10 +43,10 @@ pipeline {
 
         stage('Deploy container to AWS with Terraform') {
             steps {
-                script {
+                withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'aws_access_key'),
+                                 string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'aws_secret_key')]) {
                     sh 'terraform init'
-                    sh 'terraform plan'
-                    
+                    sh 'terraform apply'
                 }
             }
         }       
