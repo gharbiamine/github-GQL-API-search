@@ -43,17 +43,9 @@ pipeline {
         stage('Deploy container to AWS with Terraform') {
             steps {
                 script {
-                    sh '''
-                    pwd
-                    ls -la
-                    export TF_VAR_aws_access_key=$AWS_ACCESS_KEY_ID
-                    echo $AWS_ACCESS_KEY_ID
-                    echo $TF_VAR_aws_access_key
-                    export TF_VAR_aws_secret_key=$AWS_SECRET_ACCESS_KEY
-                    export TF_VAR_github_oauth_token=$GITHUB_OAUTH_TOKEN
-                    terraform init
-                    terraform plan
-                    '''
+                    sh 'terraform init'
+                    sh 'terraform plan'
+                    
                 }
             }
         }       
