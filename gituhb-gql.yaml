@@ -1,13 +1,4 @@
 ---
-apiVersion: v1
-kind: Secret
-metadata:
-  name: github-gql-secret
-type: Opaque
-data:
-  GITHUB_API_KEY: Z2hwX2VZRGFsb0x3M2VmT1ZwNmNUd2IydExpRWgyUnVJRTA3Z0p4Vw==
-
----
 apiVersion: apps/v1
 
 kind: Deployment
